@@ -16,7 +16,6 @@ export class GameBoardComponent {
   gameBoard: Array<BoardItemI>;
   previousSelectedFieldIndex: number = undefined;
   timer = 0;
-  title = 'Mahjong-like game!';
 
   constructor(private gameBoardService: GameBoardService) {
     this.gameBoard = this.gameBoardService.generateArray(this.minNumber, this.maxNumber, this.halfBoardsNumber);

@@ -1,3 +1,10 @@
+.game-title {
+  color: yellow;
+  font-size: xx-large;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .app__game-board {
   display: flex;
   flex-direction: column;

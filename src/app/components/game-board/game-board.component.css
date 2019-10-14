@@ -3,7 +3,7 @@
   border-left: 2px solid white;
   display: grid;
   grid-template-columns: repeat(6, 16vw);
-  grid-template-rows: repeat(6, 8vw);
+  grid-template-rows: repeat(6, 7vw);
 }
 
 .game-board__box {
@@ -12,11 +12,5 @@
 }
 
 .wait-cursor {
-  cursor: pointer;
-}
-
-.game-title {
-  font-size: xx-large;
-  text-transform: uppercase;
-  color: yellow;
+  cursor: none;
 }

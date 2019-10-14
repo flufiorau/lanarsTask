@@ -1,4 +1,3 @@
-<p class="game-title">{{title}}</p>
 <div class="game-board" [class.wait-cursor]="timer !== 0">
   <ng-container *ngFor="let boardFieldObject of gameBoard; let fieldIndex = index">
     <app-game-board-field [boardFieldObject]="boardFieldObject"
