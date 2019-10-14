@@ -1,0 +1,22 @@
+.game-board {
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  display: grid;
+  grid-template-columns: repeat(6, 16vw);
+  grid-template-rows: repeat(6, 8vw);
+}
+
+.game-board__box {
+  display: flex;
+  vertical-align: middle;
+}
+
+.wait-cursor {
+  cursor: pointer;
+}
+
+.game-title {
+  font-size: xx-large;
+  text-transform: uppercase;
+  color: yellow;
+}
