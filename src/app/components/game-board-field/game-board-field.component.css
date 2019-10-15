@@ -9,7 +9,11 @@
   width: 100%;
 }
 
-.game-board__field-visible {
+.game-board__field-guessed {
   background-color: #ffff00;
   color: #000;
+}
+
+.game-board__field-visible {
+  background-color: #0000ff;
 }

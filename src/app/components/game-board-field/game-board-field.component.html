@@ -1,5 +1,6 @@
 <div (click)="userClickedByField()"
-     [class.game-board__field-visible]="boardFieldObject.guessedValue || boardFieldObject.visibility"
+     [class.game-board__field-visible]="boardFieldObject.visibility"
+     [class.game-board__field-guessed]="boardFieldObject.guessedValue"
      class="game-board__field">
   {{boardFieldObject.guessedValue || boardFieldObject.visibility ? boardFieldObject.value : '#'}}
 </div>

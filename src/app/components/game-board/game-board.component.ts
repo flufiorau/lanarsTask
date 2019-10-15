@@ -30,7 +30,9 @@ export class GameBoardComponent {
       this.previousSelectedFieldIndex = i;
     } else if (this.gameBoard[this.previousSelectedFieldIndex].value === event.value) {
       event.guessedValue = true;
+      event.visibility = false;
       this.gameBoard[this.previousSelectedFieldIndex].guessedValue = true;
+      this.gameBoard[this.previousSelectedFieldIndex].visibility = false;
       this.previousSelectedFieldIndex = undefined;
     } else {
       this.timer = setTimeout(() => {
