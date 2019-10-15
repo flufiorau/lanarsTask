@@ -9,13 +9,14 @@ export class GameBoardService {
   constructor() {
   }
 
-  generateArray(min, max, count): Array<BoardItemI> {
+  /**
+   * Сперва я получаю массив длиной @quantity последовательных пар уникальных значений от @min до @max
+   * Затем массив [1,1,88,88,...,N,N] перемешиваю до [1,N,88,...,88,1,N]
+   * На последнем шаге массив цифровых значений преобразовываю в массив обьектов типа BoardItemI
+   */
+  generateArrayForGameBoard(minNumber, maxNumber, quantity): Array<BoardItemI> {
 
-    const doubleArray = (array: Array<number>) => {
-      return array.concat(array);
-    };
-
-    const shuffleArray = (array: Array<number>) => {
+    const shuffleArrayByNumberPairs = (array: Array<number>) => {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -24,20 +25,21 @@ export class GameBoardService {
       return array;
     };
 
-    const normalizeArrayForGame = (array: Array<number>) => {
+    const normalizeArrayForGameBoardFields = (array: Array<number>) => {
       return array.map((value) => {
         return {guessedValue: false, value, visibility: false};
       });
     };
 
+    const gameArrayOfNumberPairs = [];
 
-    const gameArray = [];
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    for (let i = 0; i < count / 2; i++) {
-      gameArray.push(Math.floor(Math.random() * (max - min)) + min);
+    while (gameArrayOfNumberPairs.length < quantity) {
+      const randomNumber = Math.floor(Math.random() * maxNumber) + minNumber;
+      if (!gameArrayOfNumberPairs.includes(randomNumber)) {
+        gameArrayOfNumberPairs.push(randomNumber, randomNumber);
+      }
     }
 
-    return normalizeArrayForGame(shuffleArray(doubleArray(gameArray)));
+    return normalizeArrayForGameBoardFields(shuffleArrayByNumberPairs(gameArrayOfNumberPairs));
   }
 }

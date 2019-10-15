@@ -12,13 +12,13 @@ export class GameBoardComponent {
 
   minNumber = 1;
   maxNumber = 99;
-  halfBoardsNumber = 36;
+  boardFieldsQuantity = 36;
   gameBoard: Array<BoardItemI>;
   previousSelectedFieldIndex: number = undefined;
   timer = 0;
 
   constructor(private gameBoardService: GameBoardService) {
-    this.gameBoard = this.gameBoardService.generateArray(this.minNumber, this.maxNumber, this.halfBoardsNumber);
+    this.gameBoard = this.gameBoardService.generateArrayForGameBoard(this.minNumber, this.maxNumber, this.boardFieldsQuantity);
   }
 
   clickEvent(event: BoardItemI, i): void {
@@ -32,7 +32,7 @@ export class GameBoardComponent {
       event.guessedValue = true;
       this.gameBoard[this.previousSelectedFieldIndex].guessedValue = true;
       this.previousSelectedFieldIndex = undefined;
-    } else  {
+    } else {
       this.timer = setTimeout(() => {
         this.gameBoard[this.previousSelectedFieldIndex].visibility = false;
         event.visibility = false;
